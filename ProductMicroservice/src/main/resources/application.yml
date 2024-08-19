@@ -1,0 +1,34 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: demo
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=TestingDB;encrypt=false
+    username: sa
+    password: root
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    hikari:
+      maximum-pool-size: 10
+      connection-timeout: 30000
+      idle-timeout: 10000
+      minimum-idle: 4
+  flyway:
+    enabled: false
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+logging:
+  level:
+    root: DEBUG
+jwt:
+  secret: secret_key
+  expiration: 3600000  # 1 hour in milliseconds
+
+
+
+
