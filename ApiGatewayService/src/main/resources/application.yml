@@ -1,0 +1,29 @@
+server:
+  port: 8082
+services:
+  product: http://localhost:8089/api/v1
+  order: http://localhost:8083/api/v1
+  authenticationurl: http://localhost:8090
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: product_service_route
+          uri: ${services.product}
+          predicates:
+            - Path=/products/**
+          filters:
+            - JwtAuthenticationFilter
+        - id: order_service_route
+          uri: ${services.order}
+          predicates:
+            - Path=/order/**
+          filters:
+            - JwtAuthenticationFilter
+        - id: authentication_service_route
+          uri: ${services.authenticationurl}
+          predicates:
+            - Path=/api/v1/authentication/**
+logging:
+  level:
+    root: DEBUG
