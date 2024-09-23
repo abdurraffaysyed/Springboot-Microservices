@@ -25,9 +25,6 @@ spring:
 logging:
   level:
     root: DEBUG
-jwt:
-  secret: secret_key
-  expiration: 3600000  # 1 hour in milliseconds
 
 
 

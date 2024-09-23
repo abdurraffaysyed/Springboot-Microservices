@@ -1,7 +1,7 @@
 server:
   port: 8082
 services:
-  product: http://localhost:8089/api/v1
+  product: http://localhost:8089
   order: http://localhost:8083/api/v1
   authenticationurl: http://localhost:8090
 spring:
@@ -11,7 +11,7 @@ spring:
         - id: product_service_route
           uri: ${services.product}
           predicates:
-            - Path=/products/**
+            - Path=/api/v1/product/**
           filters:
             - JwtAuthenticationFilter
         - id: order_service_route
