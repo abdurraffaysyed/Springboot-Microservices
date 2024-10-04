@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: Password
       POSTGRES_DB: Order
     ports:
-      - "5432"
+      - "127.0.0.1:0:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
@@ -20,7 +20,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: admin@example.com
       PGADMIN_DEFAULT_PASSWORD: admin
     ports:
-      - "80"
+      - "127.0.0.1:0:80"
     depends_on:
       - postgres
     volumes:
