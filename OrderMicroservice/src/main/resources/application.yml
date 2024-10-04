@@ -1,0 +1,10 @@
+server:
+  port: 8099
+spring:
+  application:
+    name: OrderMicroservice
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Order
+    username: User
+    password: Password
+
