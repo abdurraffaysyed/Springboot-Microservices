@@ -27,6 +27,8 @@ services:
       - postgres
     volumes:
       - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - custom-network
   rabbitmq:
     container_name: RabbitMQ
     image: rabbitmq:management
