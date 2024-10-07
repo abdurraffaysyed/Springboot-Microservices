@@ -1,6 +1,6 @@
 package com.example.Order.Controller;
 
-import com.example.Order.Model.Order;
+import com.example.Order.Model.Orders;
 import com.example.Order.Service.OrderService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -21,7 +21,7 @@ public class OrdersController {
     private OrderService orderService;
 
     @PostMapping
-    public ResponseEntity<Void> createOrder(@RequestBody @Valid Order order) throws Exception{
+    public ResponseEntity<Void> createOrder(@RequestBody @Valid Orders order) throws Exception{
         try{
             orderService.processOrder(order);
             return new ResponseEntity<>(HttpStatus.CREATED);

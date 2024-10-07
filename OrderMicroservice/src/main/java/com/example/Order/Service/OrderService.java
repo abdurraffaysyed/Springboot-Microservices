@@ -1,6 +1,6 @@
 package com.example.Order.Service;
 
-import com.example.Order.Model.Order;
+import com.example.Order.Model.Orders;
 import com.example.Order.Repo.IOrderRepo;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class OrderService {
     private final IOrderRepo orderRepo;
     @Transactional
-    public void processOrder(Order order){
+    public void processOrder(Orders order){
         orderRepo.save(order);
     }
 }

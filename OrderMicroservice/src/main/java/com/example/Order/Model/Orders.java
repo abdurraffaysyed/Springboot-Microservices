@@ -11,9 +11,9 @@ import java.time.LocalDateTime;
 @Table(name = "Orders")
 @NoArgsConstructor
 @Data
-public class Order {
+public class Orders {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
     private Long orderId;
     @Column(name = "product_id", nullable = false)
