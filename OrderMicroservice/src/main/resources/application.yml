@@ -7,4 +7,6 @@ spring:
     url: jdbc:postgresql://localhost:5432/Order
     username: User
     password: Password
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
 
