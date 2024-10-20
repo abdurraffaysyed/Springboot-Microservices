@@ -4,6 +4,7 @@ import com.example.demo.Products.Model.Product;
 import com.example.demo.Products.Repository.ProductRepo;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -41,5 +42,11 @@ public class ProductService {
     public void updateProductFields(Long id, String productName){
         Optional<Product> product = _repo.findById(id);
         product.ifPresent(prod -> prod.productName = productName);
+    }
+
+    @RabbitListener(queues = "sample_queue")
+    public void consumeMessage(String message)
+    {
+        String x = message;
     }
 }

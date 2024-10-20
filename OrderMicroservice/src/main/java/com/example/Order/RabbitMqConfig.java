@@ -9,6 +9,6 @@ public class RabbitMqConfig {
     private static final String queueName = "sample_queue";
     @Bean
     public Queue sampleQueue(){
-        return new Queue(queueName);
+        return new Queue(queueName, true);
     }
 }

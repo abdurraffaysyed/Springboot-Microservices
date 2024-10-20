@@ -24,6 +24,7 @@ public class OrdersController {
     public ResponseEntity<Void> createOrder(@RequestBody @Valid Orders order) throws Exception{
         try{
             orderService.processOrder(order);
+            orderService.generateMessage("The order has been placed successfully");
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (Exception e) {
             logger.error("The exception is being raised while handling the request of createOrder", e);
